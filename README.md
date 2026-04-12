@@ -1,1 +1,3 @@
-Lazy to make a proper readme pls commit
+# Troty Energy Research Facility
+## by jona23
+
