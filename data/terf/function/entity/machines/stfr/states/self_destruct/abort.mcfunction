@@ -1,4 +1,4 @@
-execute if score @s terf_data_A matches 2096.. run return fail
+execute if score @s terf_data_E matches 2096.. run return fail
 
 function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:2,text:'{"text":"The Fusion Reactor Self-Destruct Protocol Has Been Aborted By Facility Administration.","color":"red"}'}
 
