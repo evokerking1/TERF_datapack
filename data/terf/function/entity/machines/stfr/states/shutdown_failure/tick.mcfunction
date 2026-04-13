@@ -75,6 +75,9 @@ scoreboard players operation temp terf_states *= 2 terf_states
 execute if score temp terf_states matches 1.. run scoreboard players operation speed terf_states -= temp terf_states
 
 execute unless score @s terf_data_E matches 4050.. if score speed terf_states matches 1.. run scoreboard players operation @s terf_data_V += speed terf_states
+#random stabilizer rotation after total monitoring failure
+execute if predicate datapipes_lib:chances/50 if score @s terf_data_E matches 4050.. run scoreboard players add @s terf_data_V 100
+execute if predicate datapipes_lib:chances/50 if score @s terf_data_E matches 4050.. run scoreboard players remove @s terf_data_V 100
 
 execute if score @s terf_data_E matches 300..350 run function terf:entity/machines/stfr/visuals/stabilizer/rotor_particles/steam_ejection
 execute if score @s terf_data_E matches 2550..2650 run function terf:entity/machines/stfr/visuals/stabilizer/rotor_particles/steam_ejection
@@ -138,6 +141,8 @@ execute if score @s terf_data_E matches 2250 run function terf:entity/machines/s
 
 execute if score @s terf_data_E matches 2550 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shut_fail.fusion',level:2,text:'{"text":"Fusion Of A New Element Detected! Reconfiguring Systems... Details: ","color":"red"},{"text":"Details: p+Num:8","color":"gold"}'}
 execute if score @s terf_data_E matches 2550 run scoreboard players set @a[distance=..80] terf_shake_frequency 300
+#EMP from the ridicolous amount of beta radiation oxygen fusion releases 
+execute if score @s terf_data_E matches 2550.. as @e[type=marker,distance=..128] if score @s datapipes_lib_power_storage matches 0.. run scoreboard players set @s datapipes_lib_power_storage 0
 execute if score @s terf_data_E matches 2850 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shut_fail.setpoint',level:2,text:'{"text":"Automatic Shield Permeability Setpoint Unreachable Before A Containment Loss Event Occurs! ","color":"red"},{"text":"Awaiting Intervention...","color":"gold"}'}
 
 execute if score @s terf_data_E matches 3150 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shut_fail.temp_fail',level:1,text:'{"text":"Unable To Monitor Reactor Core Temperature! Switching To Approximation Via. Photon Spectrometers.","color":"red"}'}
@@ -171,6 +176,7 @@ execute if score @s[tag=terf_stab4] terf_data_E matches 4050.. if predicate data
 execute if score @s terf_data_E matches 4350 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shut_fail.instability',level:4,text:'{"text":"Extreme Shield Instability! Systems Predict A Complete Containment Failure In T-30 Seconds!","color":"red"}'}
 
 #rays
+#begin a bit sooner than the broadcast
 execute if score @s terf_data_E matches 4640.. summon item_display run function terf:entity/machines/stfr/states/shutdown_failure/rays/summon
 execute as @e[type=minecraft:item_display,tag=terf_stfr_ray] at @s run function terf:entity/machines/stfr/states/shutdown_failure/rays/tick
 execute if score @s terf_data_E matches 4950.. as @e[type=minecraft:item_display,tag=terf_stfr_ray,distance=..1] at @s run rotate @s ~1 ~-1
@@ -194,6 +200,25 @@ execute if score @s terf_data_E matches 5150 run function terf:entity/machines/s
 execute if score @s terf_data_E matches 5200 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/iterate
 execute if score @s terf_data_E matches 5250 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/iterate
 execute if score @s terf_data_E matches 5300 run function terf:entity/machines/stfr/states/detonation/detonate_reactor
+
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/panel_glitch
+
 #4650: anomaly starts glowing
 #4950: anomaly collapses, particles swirl
 #5250: explosion
