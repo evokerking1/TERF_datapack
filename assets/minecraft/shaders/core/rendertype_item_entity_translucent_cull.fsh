@@ -24,7 +24,7 @@ void main()
     if (shaderID >= 1111) // It should be {... > 0}, but it really doesnt matter
     {
         // Changing this may cause unexpected behaviour, so I left most of it as it is
-        // !!!WARNING *old* BELOW!!! Jona was not happy about my wit
+        // !!!WARNING *old* code BELOW!!! Jona was not happy about my wit
         //vec2 atlasSize = textureSize(Sampler0, 0);
         vec2 currentPixel = texCoord0 * atlasSize;
         vec2 texCoord = (currentPixel - vec2(UVTexelOrigin)) * 0.0625; // divide by 16
