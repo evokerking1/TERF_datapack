@@ -18,6 +18,7 @@ scoreboard players set @s terf_data_E 0
 scoreboard players set @s terf_data_A 11
 scoreboard players set @s terf_data_Ab 0
 tag @s remove terf_breakers_connected
+tag @s add terf_stfr_opshield
 
 execute as @s[tag=terf_speakerconnected] run playsound terf:alarms.beep2 ambient @a[distance=0..] ~ ~ ~ 1 1
 
